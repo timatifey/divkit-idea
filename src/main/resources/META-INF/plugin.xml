@@ -26,6 +26,13 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <configurationType implementation="dev.timatifey.divkit.idea.preview.runconfiguration.DivViewPreviewRunConfigurationType"/>
     </extensions>
+    <actions>
+        <action id="dev.timatifey.divkit.idea.preview.actions.DeployToDeviceAction"
+                class="dev.timatifey.divkit.idea.preview.actions.DeployToDeviceAction" text="Start DivKit Preview"
+                description="Starting DivKit Preview">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>
