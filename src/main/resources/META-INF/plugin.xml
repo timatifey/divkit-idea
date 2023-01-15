@@ -23,9 +23,41 @@
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
 
+    <actions>
+<!--        <action id="DivKitDeviceAndSnapshotComboBox" class="com.android.tools.idea.run.deployment.DeviceAndSnapshotComboBoxAction"-->
+<!--                text="Select Device">-->
+<!--            <add-to-group group-id="RunMenu" relative-to-action="editRunConfigurations" anchor="after"/>-->
+<!--            <add-to-group group-id="ToolbarRunGroup" relative-to-action="RunConfiguration" anchor="after"/>-->
+
+<!--            <keyboard-shortcut keymap="$default" first-keystroke="alt shift F11"/>-->
+<!--        </action>-->
+
+        <action id="DivKitPreviewAppGeneration" class="dev.timatifey.divkit.idea.actions.PreviewAppAssembleAction"
+                text="Assemble Preview App">
+            <add-to-group group-id="RunMenu" relative-to-action="editRunConfigurations" anchor="after"/>
+            <add-to-group group-id="ToolbarRunGroup" relative-to-action="RunConfiguration" anchor="after"/>
+        </action>
+
+        <action id="DivKitPreviewInstallerAction" class="dev.timatifey.divkit.idea.actions.PreviewAppInstallingAction"
+                text="Install Preview App">
+            <add-to-group group-id="RunMenu" relative-to-action="editRunConfigurations" anchor="after"/>
+            <add-to-group group-id="ToolbarRunGroup" relative-to-action="RunConfiguration" anchor="after"/>
+        </action>
+
+        <action id="dev.timatifey.divkit.idea.actions.RunPreviewAction"
+                class="dev.timatifey.divkit.idea.actions.RunPreviewAction" text="Start DivKit Preview"
+                description="Starting DivKit Preview">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+    </actions>
+
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <applicationConfigurable parentId="tools"
+                                 instance="dev.timatifey.divkit.idea.settings.PreviewAppSettingsConfigurable"
+                                 id="dev.timatifey.divkit.idea.settings.PreviewAppSettingsConfigurable"
+                                 displayName="DivKit Preview"/>
+            <applicationService serviceImplementation="dev.timatifey.divkit.idea.settings.PreviewAppSettings"/>
     </extensions>
 </idea-plugin>
