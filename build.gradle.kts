@@ -46,7 +46,7 @@ tasks {
     }
 
     runIde {
-//        ideDir.set(file("/Users/timatifey/Library/Application Support/JetBrains/Toolbox/apps/IDEA-C/ch-0/231.8109.175/IntelliJ IDEA CE.app/Contents"))
-        ideDir.set(file("/Applications/Android Studio.app/Contents"))
+        ideDir.set(file("/Users/timatifey/Library/Application Support/JetBrains/Toolbox/apps/IDEA-C/ch-0/231.8109.175/IntelliJ IDEA CE.app/Contents"))
+//        ideDir.set(file("/Applications/Android Studio.app/Contents"))
     }
 }

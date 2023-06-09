@@ -22,6 +22,7 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
+    <depends>com.intellij.java</depends>
 
     <actions>
 <!--        <action id="DivKitDeviceAndSnapshotComboBox" class="com.android.tools.idea.run.deployment.DeviceAndSnapshotComboBoxAction"-->
@@ -58,6 +59,13 @@
                                  instance="dev.timatifey.divkit.idea.settings.PreviewAppSettingsConfigurable"
                                  id="dev.timatifey.divkit.idea.settings.PreviewAppSettingsConfigurable"
                                  displayName="DivKit Preview"/>
-            <applicationService serviceImplementation="dev.timatifey.divkit.idea.settings.PreviewAppSettings"/>
+        <applicationService serviceImplementation="dev.timatifey.divkit.idea.settings.PreviewAppSettings"/>
+
+        <configurationType implementation="dev.timatifey.divkit.idea.dsl.DivKitPreviewRunConfigurationType"/>
+        <runConfigurationProducer implementation="dev.timatifey.divkit.idea.dsl.DivKitPreviewRunConfigurationProducer"/>
+        <deadCode implementation="dev.timatifey.divkit.idea.dsl.PreviewEntryPoint"/>
+        <runLineMarkerContributor
+                language="kotlin"
+                implementationClass="dev.timatifey.divkit.idea.dsl.DivKitPreviewRunLineMarkerContributor"/>
     </extensions>
 </idea-plugin>
